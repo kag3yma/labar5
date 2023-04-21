@@ -4,9 +4,7 @@ import java.util.Scanner;
 import commands.*;
 import utils.*;
 
-import java.util.Scanner;
-
-public class Main {
+public class App {
 
 
         public static final String PS1 = "$ ";
