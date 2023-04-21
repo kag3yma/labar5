@@ -37,7 +37,7 @@ public class AddCommand extends AbstractCommand {
             Console.println("Солдат успешно добавлен!");
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
+            Console.println("использование: '" + getName() + "'");
         } catch (IncorrectInputInScriptException exception) {}
         return false;
     }
