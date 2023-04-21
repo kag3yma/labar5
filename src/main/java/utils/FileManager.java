@@ -31,6 +31,7 @@ public class FileManager {
             }
         } else Console.printerror("Системная переменная с загрузочным файлом не найдена!");
     }
+
     public HashSet<SpaceMarine> readFromFile() {
         if (System.getenv().get(nameFile) != null) {
             try (Scanner collectionFileScanner = new Scanner(new File(System.getenv().get(nameFile)))) {
