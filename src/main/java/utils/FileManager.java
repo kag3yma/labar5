@@ -38,23 +38,35 @@ public class FileManager {
 
     public HashSet<SpaceMarine> readFromFile() {
         if (System.getenv().get(nameFile) != null) {
-            try (Scanner collectionFileScanner = new Scanner(new File(System.getenv().get(nameFile)))) {
-                HashSet<SpaceMarine> collection;
-                Type collectionType = new TypeToken<HashSet<SpaceMarine>>() {}.getType();
-                collection = gson.fromJson(collectionFileScanner.nextLine().trim(), collectionType);
-                Console.println("Коллекция успешна загружена!");
-                return collection;
-            } catch (FileNotFoundException exception) {
-                Console.printerror("Загрузочный файл не найден!");
-            } catch (NoSuchElementException exception) {
-                Console.printerror("Загрузочный файл пуст!");
-            } catch (JsonParseException | NullPointerException exception) {
-                Console.printerror("В загрузочном файле не обнаружена необходимая коллекция!");
-            } catch (IllegalStateException exception) {
-                Console.printerror("Непредвиденная ошибка!");
-                System.exit(0);
+            File file = new File(System.getenv().get(nameFile));
+            if (file.canRead()) {
+                try (Scanner collectionFileScanner = new Scanner(file)) {
+                    HashSet<SpaceMarine> collection;
+                    Type collectionType = new TypeToken<HashSet<SpaceMarine>>() {
+                    }.getType();
+                    String coll = null;
+                    while (collectionFileScanner.hasNext()) {
+                        String col = collectionFileScanner.nextLine().trim();
+                        coll = coll + col;
+                    }
+                    String a = coll.substring(4);
+                    collection = gson.fromJson(a, collectionType);
+                    HashSet<SpaceMarine> marines = collection;
+                    for (SpaceMarine marine : marines) CollectionHandler.getArrayForId().add(marine.getId());
+                    Console.println("Коллекция загружена успешно!");
+                    return collection;
+                } catch (FileNotFoundException e) {
+                    Console.printerror("Файл для загрузки не найден!");
+                    throw new RuntimeException(e);
+                } catch (NoSuchElementException exception) {
+                    Console.printerror("Загрузочный файл пуст!");
+                    throw new RuntimeException(exception);
+                } catch (NullPointerException exception) {
+                    Console.printerror("В загрузочном файле не обнаружена необходимая коллекция!");
+                    throw new RuntimeException(exception);
+                }
             }
-        } else Console.printerror("Системная переменная с загрузочным файлом не найдена!");
-        return new HashSet<SpaceMarine>();
+            } else Console.printerror("Системная переменная с загрузочным файлом не найдена!");
+            return new HashSet<SpaceMarine>();
+        }
     }
-}

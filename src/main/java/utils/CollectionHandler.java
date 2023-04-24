@@ -1,12 +1,14 @@
 package utils;
 
 import data.SpaceMarine;
+
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Iterator;
 
 public class CollectionHandler {
     HashSet<SpaceMarine> marinesCollection =  new HashSet<>();
+    private static HashSet<Long> setForId = new HashSet<>();
     private LocalDateTime initDateTime;
     private LocalDateTime saveDateTime;
     private FileManager fileManager;
@@ -21,6 +23,9 @@ public class CollectionHandler {
     }
     public void addToCollection(SpaceMarine marine) {
         marinesCollection.add(marine);
+    }
+    public static HashSet<Long> getArrayForId() {
+        return setForId;
     }
 
     public String collectionType() {

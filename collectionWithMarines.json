@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Ilya",
+    "coordinates": {
+      "x": 20.0,
+      "y": 25.0
+    },
+    "creationDate": "2023-04-24T17:49:54.987674200",
+    "health": 100.0,
+    "height": 173.0,
+    "weaponType": "FLAMER",
+    "meleeWeapon": "POWER_SWORD",
+    "chapter": {
+      "name": "JOJO",
+      "parentLegion": "Naruto",
+      "marinesCount": 1,
+      "world": "EARTH"
+    }
+  }
+]
