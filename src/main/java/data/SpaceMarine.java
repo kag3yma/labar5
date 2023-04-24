@@ -79,7 +79,7 @@ public class SpaceMarine {
     @Override
     public String toString() {
         String info = "";
-        info += "\nСолдат №" + id;
+        info += "Солдат №" + id;
         info += " (добавлен " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
         info += "\n имя: " + name;
         info += "\n Местоположение: " + coordinates;
@@ -88,6 +88,7 @@ public class SpaceMarine {
         info += "\n Дальнее оружие: " + weaponType;
         info += "\n Ближнее оружие: " + meleeWeapon;
         info += chapter;
+        info += "\n";
         return info;
     }
 }
