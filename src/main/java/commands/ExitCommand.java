@@ -15,7 +15,7 @@ public class ExitCommand extends AbstractCommand {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
+            Console.println("использование: '" + getName() + "'");
         }
         return false;
     }

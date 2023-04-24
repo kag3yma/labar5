@@ -14,7 +14,7 @@ public class HelpCommand extends AbstractCommand {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println("Использование: '" + getName() + "'");
+            System.out.println("использование: '" + getName() + "'");
         }
         return false;
     }

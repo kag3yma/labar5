@@ -32,7 +32,7 @@ public class InfoCommand extends AbstractCommand {
             System.out.println(" Дата последней инициализации: " + lastInitTimeString);
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println("Использование: '" + getName() + "'");
+            System.out.println("использование: '" + getName() + "'");
         }
         return false;
     }

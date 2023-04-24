@@ -13,10 +13,11 @@ public class SpaceMarine {
     private MeleeWeapon meleeWeapon; //Поле не может быть null
     private Chapter chapter; //Поле не может быть null
 
-    public SpaceMarine(Long id, String name, Coordinates coordinates,
-                       LocalDateTime creationDate,Float health, float height, Weapon weaponType,
+    public SpaceMarine(Long id, String name, LocalDateTime creationDate, Coordinates coordinates,
+                       Float health, float height, Weapon weaponType,
                        MeleeWeapon meleeWeapon,Chapter chapter) {
         this.id = id;
+        this.creationDate = creationDate;
         this.name = name;
         this.coordinates = coordinates;
         this.health = health;
@@ -78,15 +79,15 @@ public class SpaceMarine {
     @Override
     public String toString() {
         String info = "";
-        info += "Солдат №" + id;
+        info += "\nСолдат №" + id;
         info += " (добавлен " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
-        info += "\n Имя: " + name;
+        info += "\n имя: " + name;
         info += "\n Местоположение: " + coordinates;
         info += "\n Здоровье: " + health;
         info += "\n Рост: " + height;
         info += "\n Дальнее оружие: " + weaponType;
         info += "\n Ближнее оружие: " + meleeWeapon;
-        info += "\n Орден: " + chapter;
+        info += chapter;
         return info;
     }
 }

@@ -19,7 +19,7 @@ public class SaveCommand extends AbstractCommand {
             collectionHandler.saveCollection();
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
+            Console.println("использование: '" + getName() + "'");
         }
         return false;
     }

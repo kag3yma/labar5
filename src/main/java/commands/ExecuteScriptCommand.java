@@ -15,7 +15,7 @@ public class ExecuteScriptCommand extends AbstractCommand {
             Console.println("Выполняю скрипт '" + argument + "'...");
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
+            Console.println("использование: '" + getName() + "'");
         }
         return false;
     }

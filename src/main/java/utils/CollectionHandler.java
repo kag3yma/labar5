@@ -51,7 +51,7 @@ public class CollectionHandler {
     }
 
     public Long generateNextId(){
-        Long nextId = Long.valueOf(1);
+        Long nextId = Long.valueOf(0);
         for(SpaceMarine spaceMarine : marinesCollection){
             if (spaceMarine.getId() >= nextId){
                 nextId = spaceMarine.getId();

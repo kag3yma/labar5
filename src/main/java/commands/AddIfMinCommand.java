@@ -26,8 +26,8 @@ public class AddIfMinCommand extends AbstractCommand {
             SpaceMarine marineToAdd = new SpaceMarine(
                     collectionHandler.generateNextId(),
                     marineAsker.askName(),
-                    marineAsker.askCoordinates(),
                     LocalDateTime.now(),
+                    marineAsker.askCoordinates(),
                     marineAsker.askHealth(),
                     marineAsker.askHeight(),
                     marineAsker.askWeaponType(),
@@ -40,7 +40,7 @@ public class AddIfMinCommand extends AbstractCommand {
                 return true;
             } else Console.printerror("Значение солдата больше, чем значение наименьшего из солдат!");
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
+            Console.println("использование: '" + getName() + "'");
         } catch (IncorrectInputInScriptException exception) {}
         return false;
     }

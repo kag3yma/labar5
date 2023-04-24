@@ -26,8 +26,8 @@ public class AddCommand extends AbstractCommand {
             collectionHandler.addToCollection(new SpaceMarine(
                     collectionHandler.generateNextId(),
                     marineAsker.askName(),
-                    marineAsker.askCoordinates(),
                     LocalDateTime.now(),
+                    marineAsker.askCoordinates(),
                     marineAsker.askHealth(),
                     marineAsker.askHeight(),
                     marineAsker.askWeaponType(),

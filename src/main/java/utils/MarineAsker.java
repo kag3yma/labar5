@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class MarineAsker {
     private final Float MIN_X = Float.valueOf(-647);
     private final Float MIN_HEALTH = Float.valueOf(1);
-    private final int MIN_MARINES = 1;
+    private final int MIN_MARINES = 0;
     private final int MAX_MARINES = 1000;
 
     private Scanner userScanner;
@@ -53,10 +53,10 @@ public class MarineAsker {
                 if (name.equals("")) throw new MustBeNotEmptyException();
                 break;
             } catch (NoSuchElementException exception) {
-                Console.printerror("Имя не распознано!");
+                Console.printerror("имя не распознано!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (MustBeNotEmptyException exception) {
-                Console.printerror("Имя не может быть пустым!");
+                Console.printerror("имя не может быть пустым!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalStateException exception) {
                 Console.printerror("Непредвиденная ошибка!");
@@ -245,10 +245,10 @@ public class MarineAsker {
                 if (chapterName.equals("")) throw new MustBeNotEmptyException();
                 break;
             } catch (NoSuchElementException exception) {
-                Console.printerror("Имя ордена не распознано!");
+                Console.printerror("имя ордена не распознано!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (MustBeNotEmptyException exception) {
-                Console.printerror("Имя ордена не может быть пустым!");
+                Console.printerror("имя ордена не может быть пустым!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalStateException exception) {
                 Console.printerror("Непредвиденная ошибка!");
@@ -312,7 +312,7 @@ public class MarineAsker {
                 if (fileMode) Console.println(world);
                 break;
             } catch (NoSuchElementException exception) {
-                Console.printerror("Имя ордена не распознано!");
+                Console.printerror("имя ордена не распознано!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             }  catch (IllegalStateException exception) {
                 Console.printerror("Непредвиденная ошибка!");

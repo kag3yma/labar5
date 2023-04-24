@@ -53,8 +53,8 @@ public class UpdateCommand extends AbstractCommand {
             collectionHandler.addToCollection(new SpaceMarine(
                     id,
                     name,
+                    creationDate,
                     coordinates,
-                    LocalDateTime.now(),
                     health,
                     height,
                     weaponType,
@@ -64,7 +64,7 @@ public class UpdateCommand extends AbstractCommand {
             Console.println("Солдат успешно изменен!");
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
+            Console.println("использование: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
             Console.printerror("Коллекция пуста!");
         } catch (NumberFormatException exception) {

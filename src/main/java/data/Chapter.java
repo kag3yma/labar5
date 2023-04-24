@@ -22,4 +22,13 @@ public class Chapter {
     public void setMarinesCount(int marinesCount){this.marinesCount = marinesCount;}
     public String getWorld(){return world;}
     public void setWorld(String world){this.world = world;}
+    @Override
+    public String toString() {
+        String infoChap = "";
+        infoChap += "\n Орден: " + name + " (" + marinesCount + " солдат)";
+        infoChap += "\n        Появившийся из " + parentLegion;
+        infoChap += "\n        В мире: " + world;
+        infoChap += "\n";
+        return infoChap;
+    }
 }

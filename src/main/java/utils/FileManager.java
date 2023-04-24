@@ -2,6 +2,7 @@ package utils;
 
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 import data.SpaceMarine;
@@ -11,10 +12,13 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class FileManager {
-    private Gson gson = new Gson();
+    private Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).registerTypeAdapter(
+            LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
     private String nameFile;
 
     public FileManager(String nameFile) {

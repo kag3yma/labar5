@@ -27,7 +27,7 @@ public class RemoveByIdCommand extends AbstractCommand {
             Console.println("Солдат успешно удален!");
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
+            Console.println("использование: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
             Console.printerror("Коллекция пуста!");
         } catch (NumberFormatException exception) {
