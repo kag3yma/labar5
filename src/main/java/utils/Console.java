@@ -119,6 +119,12 @@ public class Console {
             case "add_if_max":
                 if (!commandManager.addIfMax(userCommand[1])) return 1;
                 break;
+            case "remove_lower":
+                if (!commandManager.removeLower(userCommand[1])) return 1;
+                break;
+            case "average_of_health":
+                if (!commandManager.avgOfHealth(userCommand[1])) return 1;
+                break;
             case "exit":
                 if (!commandManager.exit(userCommand[1])) return 1;
                 else return 2;

@@ -27,7 +27,9 @@ public class App {
                         new ExitCommand(),
                         new ExecuteScriptCommand(),
                         new AddIfMinCommand(collectionHandler, marineAsker),
-                        new AddIfMaxCommand(collectionHandler, marineAsker)
+                        new AddIfMaxCommand(collectionHandler, marineAsker),
+                        new RemoveLowerCommand(collectionHandler, marineAsker),
+                        new AverageOfHealthCommand(collectionHandler)
                 );
                 Console console = new Console(commandManager, userScanner, marineAsker);
 

@@ -18,10 +18,12 @@ public class CommandManager {
     private Command executeScriptCommand;
     private Command addIfMinCommand;
     private Command addIfMaxCommand;
+    private Command removeLowerCommand;
+    private Command averageOfHealthCommand;
 
     public CommandManager(Command helpCommand, Command infoCommand, Command showCommand, Command addCommand, Command updateCommand,
                           Command removeByIdCommand, Command clearCommand, Command saveCommand, Command exitCommand, Command executeScriptCommand,
-                          Command addIfMinCommand, Command addIfMaxCommand) {
+                          Command addIfMinCommand, Command addIfMaxCommand, Command removeLowerCommand, Command averageOfHealthCommand) {
         this.helpCommand = helpCommand;
         this.infoCommand = infoCommand;
         this.showCommand = showCommand;
@@ -34,6 +36,8 @@ public class CommandManager {
         this.executeScriptCommand = executeScriptCommand;
         this.addIfMinCommand = addIfMinCommand;
         this.addIfMaxCommand = addIfMaxCommand;
+        this.removeLowerCommand = removeLowerCommand;
+        this.averageOfHealthCommand = averageOfHealthCommand;
 
         commands.add(helpCommand);
         commands.add(infoCommand);
@@ -47,6 +51,8 @@ public class CommandManager {
         commands.add(executeScriptCommand);
         commands.add(addIfMinCommand);
         commands.add(addIfMaxCommand);
+        commands.add(removeLowerCommand);
+        commands.add(averageOfHealthCommand);
     }
 
 
@@ -105,6 +111,8 @@ public class CommandManager {
     public boolean addIfMax(String argument) {
         return addIfMaxCommand.execute(argument);
     }
+    public boolean removeLower(String argument) {return removeLowerCommand.execute(argument);}
+    public boolean avgOfHealth(String argument) {return averageOfHealthCommand.execute(argument);}
 
 
     @Override

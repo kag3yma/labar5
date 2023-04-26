@@ -64,6 +64,29 @@ public class CollectionHandler {
         }
         return nextId+1;
     }
+    public Float averageHealth() {
+        if (marinesCollection.isEmpty()) return 0F;
+        Float avghealth;
+        Float sumhealth = 0F;
+        Float quantity = 0F;
+        for(SpaceMarine Marine: marinesCollection) {
+            sumhealth += Marine.getHealth();
+            quantity += 1F;
+        }
+        avghealth = sumhealth / quantity;
+        return avghealth;
+    }
+    public int enumeration(Float health) {
+        int executeStatus = 0;
+        if (marinesCollection.isEmpty()) return 0;
+        for(SpaceMarine Marine: marinesCollection)
+            if(Marine.getHealth() < health) {
+                marinesCollection.remove(Marine);
+                executeStatus = 1;
+            }
+        if (executeStatus == 0) return 2;
+        return 1;
+    }
     public Long getFirst() {
         if (marinesCollection.isEmpty()) return 999999999L;
         Float minhealth = 999999.0F;
