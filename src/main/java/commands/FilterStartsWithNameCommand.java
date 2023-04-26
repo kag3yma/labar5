@@ -6,8 +6,7 @@ import utils.CollectionHandler;
 import utils.Console;
 
 import java.util.HashSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class FilterStartsWithNameCommand extends AbstractCommand {
     private CollectionHandler collectionHandler;
