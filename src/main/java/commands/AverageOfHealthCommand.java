@@ -1,12 +1,9 @@
 package commands;
 
-import data.SpaceMarine;
-import exceptions.IncorrectInputInScriptException;
+
 import exceptions.WrongAmountOfElementsException;
 import utils.CollectionHandler;
-import utils.Console;
 
-import java.time.LocalDateTime;
 
 public class AverageOfHealthCommand extends AbstractCommand {
     private CollectionHandler collectionHandler;

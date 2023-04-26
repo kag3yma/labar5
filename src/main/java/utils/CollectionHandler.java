@@ -3,6 +3,7 @@ package utils;
 import data.SpaceMarine;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -78,13 +79,17 @@ public class CollectionHandler {
     }
     public int enumeration(Float health) {
         int executeStatus = 0;
+        ArrayList<SpaceMarine> ToDelete = new ArrayList<>();
         if (marinesCollection.isEmpty()) return 0;
         for(SpaceMarine Marine: marinesCollection)
             if(Marine.getHealth() < health) {
-                marinesCollection.remove(Marine);
+                ToDelete.add(Marine);
                 executeStatus = 1;
             }
         if (executeStatus == 0) return 2;
+        for(SpaceMarine marineToDelete: ToDelete){
+            marinesCollection.remove(marineToDelete);
+        }
         return 1;
     }
     public Long getFirst() {

@@ -1,4 +1,5 @@
 show
 help
 info
+average_of_health
 execute_script scriptFile2.json
