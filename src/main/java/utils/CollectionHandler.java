@@ -75,6 +75,18 @@ public class CollectionHandler {
             }
         return minId;
     }
+    public Long getLast() {
+        if (marinesCollection.isEmpty()) return 0L;
+        Float maxhealth = 0F;
+        Long maxId = 0L;
+        for(SpaceMarine firstMarine: marinesCollection)
+            if(firstMarine.getHealth() > maxhealth) {
+                maxhealth = firstMarine.getHeight();
+                maxId = firstMarine.getId();
+            }
+        return maxId;
+    }
+
 
     public void saveCollection() {
         fileManager.writeFile(marinesCollection);

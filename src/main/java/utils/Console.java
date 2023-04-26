@@ -116,6 +116,9 @@ public class Console {
             case "add_if_min":
                 if (!commandManager.addIfMin(userCommand[1])) return 1;
                 break;
+            case "add_if_max":
+                if (!commandManager.addIfMax(userCommand[1])) return 1;
+                break;
             case "exit":
                 if (!commandManager.exit(userCommand[1])) return 1;
                 else return 2;

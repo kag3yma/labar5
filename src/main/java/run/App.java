@@ -26,7 +26,8 @@ public class App {
                         new SaveCommand(collectionHandler),
                         new ExitCommand(),
                         new ExecuteScriptCommand(),
-                        new AddIfMinCommand(collectionHandler, marineAsker)
+                        new AddIfMinCommand(collectionHandler, marineAsker),
+                        new AddIfMaxCommand(collectionHandler, marineAsker)
                 );
                 Console console = new Console(commandManager, userScanner, marineAsker);
 

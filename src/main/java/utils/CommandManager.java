@@ -17,10 +17,11 @@ public class CommandManager {
     private Command exitCommand;
     private Command executeScriptCommand;
     private Command addIfMinCommand;
+    private Command addIfMaxCommand;
 
     public CommandManager(Command helpCommand, Command infoCommand, Command showCommand, Command addCommand, Command updateCommand,
                           Command removeByIdCommand, Command clearCommand, Command saveCommand, Command exitCommand, Command executeScriptCommand,
-                          Command addIfMinCommand) {
+                          Command addIfMinCommand, Command addIfMaxCommand) {
         this.helpCommand = helpCommand;
         this.infoCommand = infoCommand;
         this.showCommand = showCommand;
@@ -32,6 +33,7 @@ public class CommandManager {
         this.exitCommand = exitCommand;
         this.executeScriptCommand = executeScriptCommand;
         this.addIfMinCommand = addIfMinCommand;
+        this.addIfMaxCommand = addIfMaxCommand;
 
         commands.add(helpCommand);
         commands.add(infoCommand);
@@ -44,6 +46,7 @@ public class CommandManager {
         commands.add(exitCommand);
         commands.add(executeScriptCommand);
         commands.add(addIfMinCommand);
+        commands.add(addIfMaxCommand);
     }
 
 
@@ -98,6 +101,9 @@ public class CommandManager {
 
     public boolean addIfMin(String argument) {
         return addIfMinCommand.execute(argument);
+    }
+    public boolean addIfMax(String argument) {
+        return addIfMaxCommand.execute(argument);
     }
 
 
