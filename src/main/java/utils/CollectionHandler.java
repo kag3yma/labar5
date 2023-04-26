@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CollectionHandler {
     HashSet<SpaceMarine> marinesCollection =  new HashSet<>();
@@ -92,7 +94,20 @@ public class CollectionHandler {
         }
         return 1;
     }
-    public Long getFirst() {
+    public HashSet namestart(String startname) {
+        HashSet<SpaceMarine> marinesWithRightNames = new HashSet<>();
+        for (SpaceMarine marine: marinesCollection){
+            startname = "^" + startname;
+            Pattern pattern = Pattern.compile(startname);
+            Matcher matcher = pattern.matcher(marine.getName());
+            boolean found = matcher.matches();
+            if(found)
+                marinesWithRightNames.add(marine);
+        }
+        return marinesWithRightNames;
+    }
+
+    public Long getMin() {
         if (marinesCollection.isEmpty()) return 999999999L;
         Float minhealth = 999999.0F;
         Long minId = 999999999L;
@@ -103,7 +118,7 @@ public class CollectionHandler {
             }
         return minId;
     }
-    public Long getLast() {
+    public Long getMax() {
         if (marinesCollection.isEmpty()) return 0L;
         Float maxhealth = 0F;
         Long maxId = 0L;

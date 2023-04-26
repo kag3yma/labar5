@@ -29,7 +29,8 @@ public class App {
                         new AddIfMinCommand(collectionHandler, marineAsker),
                         new AddIfMaxCommand(collectionHandler, marineAsker),
                         new RemoveLowerCommand(collectionHandler, marineAsker),
-                        new AverageOfHealthCommand(collectionHandler)
+                        new AverageOfHealthCommand(collectionHandler),
+                        new FilterStartsWithNameCommand(collectionHandler)
                 );
                 Console console = new Console(commandManager, userScanner, marineAsker);
 

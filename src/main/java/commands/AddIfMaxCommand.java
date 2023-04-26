@@ -36,7 +36,7 @@ public class AddIfMaxCommand extends AbstractCommand {
                     marineAsker.askChapter()
             );
             if (collectionHandler.collectionSize() == 0 ||
-                    marineToAdd.compareTo(collectionHandler.getById(collectionHandler.getLast()) ) > 0) {
+                    marineToAdd.compareTo(collectionHandler.getById(collectionHandler.getMax()) ) > 0) {
                 collectionHandler.addToCollection(marineToAdd);
                 Console.println("Солдат успешно добавлен!");
                 return true;

@@ -125,6 +125,9 @@ public class Console {
             case "average_of_health":
                 if (!commandManager.avgOfHealth(userCommand[1])) return 1;
                 break;
+            case "filter_starts_with_name":
+                if (!commandManager.filterName(userCommand[1])) return 1;
+                break;
             case "exit":
                 if (!commandManager.exit(userCommand[1])) return 1;
                 else return 2;
