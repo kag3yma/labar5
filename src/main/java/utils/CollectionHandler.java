@@ -64,12 +64,18 @@ public class CollectionHandler {
         }
         return nextId+1;
     }
-
-    public SpaceMarine getFirst() {
-        if (marinesCollection.isEmpty()) return null;
-        Iterator<SpaceMarine> i = marinesCollection.iterator();
-        return i.next();
+    public Long getFirst() {
+        if (marinesCollection.isEmpty()) return 999999999L;
+        Float minhealth = 999999.0F;
+        Long minId = 999999999L;
+        for(SpaceMarine firstMarine: marinesCollection)
+            if(firstMarine.getHealth() < minhealth) {
+                minhealth = firstMarine.getHeight();
+                minId = firstMarine.getId();
+            }
+        return minId;
     }
+
     public void saveCollection() {
         fileManager.writeFile(marinesCollection);
         saveDateTime = LocalDateTime.now();

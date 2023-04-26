@@ -59,7 +59,7 @@ public class SpaceMarine {
     public void setChapter(Chapter chapter){this.chapter = chapter;}
 
     public int compareTo(SpaceMarine marineObj) {
-        return id.compareTo(marineObj.getId());
+        return health.compareTo(marineObj.getHealth());
     }
 
     @Override
