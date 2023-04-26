@@ -97,7 +97,7 @@ public class CollectionHandler {
     public HashSet namestart(String startname) {
         HashSet<SpaceMarine> marinesWithRightNames = new HashSet<>();
         for (SpaceMarine marine: marinesCollection){
-            startname = "^" + startname + "\\w*";
+            startname = "^" + startname + ".*";
             Pattern pattern = Pattern.compile(startname);
             Matcher matcher = pattern.matcher(marine.getName());
             boolean found = matcher.matches();
