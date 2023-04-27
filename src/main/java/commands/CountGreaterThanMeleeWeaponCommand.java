@@ -12,7 +12,7 @@ public class CountGreaterThanMeleeWeaponCommand extends AbstractCommand {
     private CollectionHandler collectionHandler;
 
     public CountGreaterThanMeleeWeaponCommand(CollectionHandler collectionHandler) {
-        super("count_greater_than_melee_weapon meleeWeapon", "   вывести количество элементов,\n   " +
+        super("count_greater_than_melee_weapon meleeWeapon", "   вывести количество элементов, " +
                 "значение поля meleeWeapon которых больше заданного");
         this.collectionHandler = collectionHandler;
     }
@@ -31,6 +31,8 @@ public class CountGreaterThanMeleeWeaponCommand extends AbstractCommand {
             } else Console.println("Элементов подходящих под условие не найдено!");
         } catch (WrongAmountOfElementsException exception) {
             System.out.println("использование: '" + getName() + "'");
+        } catch (IllegalArgumentException exception) {
+            System.out.println("Такого элемента нет в списке!");
         }
         return false;
     }
