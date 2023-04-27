@@ -21,7 +21,7 @@ public class CountGreaterThanMeleeWeaponCommand extends AbstractCommand {
     public boolean execute(String argument) {
         try {
             if (argument == null) throw new WrongAmountOfElementsException();
-            MeleeWeapon MeleeWep = MeleeWeapon.valueOf(argument);
+            MeleeWeapon MeleeWep = MeleeWeapon.valueOf(argument.toUpperCase());
             int quantityMelee = 0;
             HashSet<SpaceMarine> marinesMelee = collectionHandler.enumerationMelee(MeleeWep);
             if (!marinesMelee.isEmpty()) {
