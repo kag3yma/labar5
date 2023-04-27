@@ -58,7 +58,7 @@ public class SpaceMarine {
     public Chapter getChapter(){return chapter;}
     public void setChapter(Chapter chapter){this.chapter = chapter;}
 
-    public int compareTo(SpaceMarine marineObj) {
+    public int healthCompareTo(SpaceMarine marineObj) {
         return health.compareTo(marineObj.getHealth());
     }
 

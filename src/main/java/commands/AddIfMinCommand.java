@@ -35,7 +35,7 @@ public class AddIfMinCommand extends AbstractCommand {
                     marineAsker.askChapter()
             );
             if (collectionHandler.collectionSize() == 0 ||
-                    marineToAdd.compareTo(collectionHandler.getById(collectionHandler.getMin()) ) < 0) {
+                    marineToAdd.healthCompareTo(collectionHandler.getById(collectionHandler.getMin()) ) < 0) {
                 collectionHandler.addToCollection(marineToAdd);
                 Console.println("Солдат успешно добавлен!");
                 return true;

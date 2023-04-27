@@ -21,11 +21,12 @@ public class CommandManager {
     private Command removeLowerCommand;
     private Command averageOfHealthCommand;
     private Command filterStartsWithNameCommand;
+    private Command countGreaterThanMeleeWeaponCommand;
 
     public CommandManager(Command helpCommand, Command infoCommand, Command showCommand, Command addCommand, Command updateCommand,
                           Command removeByIdCommand, Command clearCommand, Command saveCommand, Command exitCommand, Command executeScriptCommand,
                           Command addIfMinCommand, Command addIfMaxCommand, Command removeLowerCommand, Command averageOfHealthCommand,
-                          Command filterStartsWithNameCommand) {
+                          Command filterStartsWithNameCommand, Command countGreaterThanMeleeWeaponCommand) {
         this.helpCommand = helpCommand;
         this.infoCommand = infoCommand;
         this.showCommand = showCommand;
@@ -41,6 +42,7 @@ public class CommandManager {
         this.removeLowerCommand = removeLowerCommand;
         this.averageOfHealthCommand = averageOfHealthCommand;
         this.filterStartsWithNameCommand = filterStartsWithNameCommand;
+        this.countGreaterThanMeleeWeaponCommand = countGreaterThanMeleeWeaponCommand;
 
         commands.add(helpCommand);
         commands.add(infoCommand);
@@ -57,6 +59,7 @@ public class CommandManager {
         commands.add(removeLowerCommand);
         commands.add(averageOfHealthCommand);
         commands.add(filterStartsWithNameCommand);
+        commands.add(countGreaterThanMeleeWeaponCommand);
     }
 
 
@@ -118,6 +121,7 @@ public class CommandManager {
     public boolean removeLower(String argument) {return removeLowerCommand.execute(argument);}
     public boolean avgOfHealth(String argument) {return averageOfHealthCommand.execute(argument);}
     public boolean filterName(String argument) {return filterStartsWithNameCommand.execute(argument);}
+    public boolean countMelee(String argument) {return countGreaterThanMeleeWeaponCommand.execute(argument);}
 
 
     @Override

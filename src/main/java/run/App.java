@@ -30,7 +30,8 @@ public class App {
                         new AddIfMaxCommand(collectionHandler, marineAsker),
                         new RemoveLowerCommand(collectionHandler, marineAsker),
                         new AverageOfHealthCommand(collectionHandler),
-                        new FilterStartsWithNameCommand(collectionHandler)
+                        new FilterStartsWithNameCommand(collectionHandler),
+                        new CountGreaterThanMeleeWeaponCommand(collectionHandler)
                 );
                 Console console = new Console(commandManager, userScanner, marineAsker);
 

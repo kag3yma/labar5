@@ -1,6 +1,8 @@
 package utils;
 
+import data.MeleeWeapon;
 import data.SpaceMarine;
+import data.Weapon;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -93,6 +95,15 @@ public class CollectionHandler {
             marinesCollection.remove(marineToDelete);
         }
         return 1;
+    }
+    public HashSet enumerationMelee(MeleeWeapon meleeweapon) {
+        HashSet<SpaceMarine> marinesWithMeleeWeapon = new HashSet<>();
+        if (marinesCollection.isEmpty()) return marinesWithMeleeWeapon;
+        for(SpaceMarine Marine: marinesCollection)
+            if(Marine.getMeleeWeapon().toString().length() > meleeweapon.toString().length()) {
+                marinesWithMeleeWeapon.add(Marine);
+            }
+        return marinesWithMeleeWeapon;
     }
     public HashSet namestart(String startname) {
         HashSet<SpaceMarine> marinesWithRightNames = new HashSet<>();

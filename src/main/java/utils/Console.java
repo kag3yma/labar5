@@ -128,6 +128,9 @@ public class Console {
             case "filter_starts_with_name":
                 if (!commandManager.filterName(userCommand[1])) return 1;
                 break;
+            case "count_greater_than_melee_weapon":
+                if (!commandManager.countMelee(userCommand[1])) return 1;
+                break;
             case "exit":
                 if (!commandManager.exit(userCommand[1])) return 1;
                 else return 2;
