@@ -34,9 +34,9 @@ public class Console {
                 commandStatus = launchCommand(userCommand);
             } while (commandStatus != 2);
         } catch (NoSuchElementException exception) {
-            Console.printerror("Пользовательский ввод не обнаружен!");
+            Console.printerror("User input not found!");
         } catch (IllegalStateException exception) {
-            Console.printerror("Непредвиденная ошибка!");
+            Console.printerror("Unexpected error!");
         }
     }
     public int scriptMode(String argument) {
@@ -66,16 +66,16 @@ public class Console {
             marineAsker.setUserScanner(tmpScanner);
             marineAsker.setUserMode();
             if (commandStatus == 1 && !(userCommand[0].equals("execute_script") && !userCommand[1].isEmpty()))
-                Console.println("Проверьте скрипт на корректность введенных данных!");
+                Console.println("Check the script for the correctness of the entered data!");
             return commandStatus;
         } catch (FileNotFoundException exception) {
-            Console.printerror("Файл со скриптом не найден!");
+            Console.printerror("Script file not found!");
         } catch (NoSuchElementException exception) {
-            Console.printerror("Файл со скриптом пуст!");
+            Console.printerror("Script file is empty!");
         } catch (ScriptRecursionException exception) {
-            Console.printerror("Скрипты не могут вызываться рекурсивно!");
+            Console.printerror("Scripts cannot be called recursively!");
         } catch (IllegalStateException exception) {
-            Console.printerror("Непредвиденная ошибка!");
+            Console.printerror("Unexpected error!");
             System.exit(0);
         } finally {
             scriptStack.remove(scriptStack.size()-1);
@@ -158,6 +158,6 @@ public class Console {
 
     @Override
     public String toString() {
-        return "Console (класс для обработки ввода команд)";
+        return "Console (class for handling command input)";
     }
 }

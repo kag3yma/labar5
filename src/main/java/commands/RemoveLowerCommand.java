@@ -14,7 +14,7 @@ public class RemoveLowerCommand extends AbstractCommand {
     private MarineAsker marineAsker;
 
     public RemoveLowerCommand(CollectionHandler collectionHandler, MarineAsker marineAsker) {
-        super("remove_lower {element}", "удалить из коллекции все элементы, меньшие, чем заданный");
+        super("remove_lower {element}", "remove from the collection all elements smaller than the given one");
         this.collectionHandler = collectionHandler;
         this.marineAsker = marineAsker;
     }
@@ -35,13 +35,13 @@ public class RemoveLowerCommand extends AbstractCommand {
                     marineAsker.askChapter()
             );
             if (collectionHandler.enumeration(marineToCompare.getHealth()) == 1) {
-                Console.println("Солдаты успешно удалены!");
+                Console.println("Soldiers successfully removed!");
                 return true;
             } else if (collectionHandler.enumeration(marineToCompare.getHealth()) == 2) {
-                Console.printerror("Значение солдата меньше, чем у всех солдат в коллекции!");
-            } else Console.printerror("Коллекция пуста!");
+                Console.printerror("The value of the soldier is less than all the soldiers in the collection!");
+            } else Console.printerror("Collection is empty!");
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("использование: '" + getName() + "'");
+            Console.println("usage: '" + getName() + "'");
         } catch (IncorrectInputInScriptException exception) {}
         return false;
     }

@@ -14,8 +14,8 @@ public class AddIfMaxCommand extends AbstractCommand {
     private MarineAsker marineAsker;
 
     public AddIfMaxCommand(CollectionHandler collectionHandler, MarineAsker marineAsker) {
-        super("add_if_max {element}", "добавить новый элемент в коллекцию, " +
-                "если его значение превышает значение наибольшего элемента этой коллекции");
+        super("add_if_max {element}", "add a new element to the collection, " +
+                "if its value is greater than the value of the largest element of this collection");
         this.collectionHandler = collectionHandler;
         this.marineAsker = marineAsker;
     }
@@ -38,11 +38,11 @@ public class AddIfMaxCommand extends AbstractCommand {
             if (collectionHandler.collectionSize() == 0 ||
                     marineToAdd.healthCompareTo(collectionHandler.getById(collectionHandler.getMax()) ) > 0) {
                 collectionHandler.addToCollection(marineToAdd);
-                Console.println("Солдат успешно добавлен!");
+                Console.println("Soldier successfully added!");
                 return true;
-            } else Console.printerror("Значение солдата меньше, чем значение наибольшего из солдат!");
+            } else Console.printerror("The value of the soldier is less than the value of the largest of the soldiers!");
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("использование: '" + getName() + "'");
+            Console.println("usage: '" + getName() + "'");
         } catch (IncorrectInputInScriptException exception) {}
         return false;
     }

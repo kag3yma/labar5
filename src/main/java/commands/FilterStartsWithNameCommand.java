@@ -12,7 +12,7 @@ public class FilterStartsWithNameCommand extends AbstractCommand {
     private CollectionHandler collectionHandler;
 
     public FilterStartsWithNameCommand(CollectionHandler collectionHandler) {
-        super("filter_starts_with_name name", "вывести элементы, значение поля name которых начинается с заданной подстроки");
+        super("filter_starts_with_name name", "display elements whose name field value starts with the given substring");
         this.collectionHandler = collectionHandler;
     }
 
@@ -24,9 +24,9 @@ public class FilterStartsWithNameCommand extends AbstractCommand {
             if (!marinesNames.isEmpty()) {
                 for(SpaceMarine marine: marinesNames) Console.println(marine.getName());
                 return true;
-            } else Console.println("Совпадений не найдено!");
+            } else Console.println("No matches found!");
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println("использование: '" + getName() + "'");
+            System.out.println("usage: '" + getName() + "'");
         }
         return false;
     }

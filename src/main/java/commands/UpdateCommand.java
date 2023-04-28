@@ -16,7 +16,7 @@ public class UpdateCommand extends AbstractCommand {
     private MarineAsker marineAsker;
 
     public UpdateCommand(CollectionHandler collectionHandler, MarineAsker marineAsker) {
-        super("update <ID> {element}", "обновить значение элемента коллекции по ID");
+        super("update <ID> {element}", "update collection element value by ID");
         this.collectionHandler = collectionHandler;
         this.marineAsker = marineAsker;
     }
@@ -42,13 +42,13 @@ public class UpdateCommand extends AbstractCommand {
 
             collectionHandler.removeFromCollection(oldMarine);
 
-            if (marineAsker.askQuestion("Хотите изменить имя солдата?")) name = marineAsker.askName();
-            if (marineAsker.askQuestion("Хотите изменить координаты солдата?")) coordinates = marineAsker.askCoordinates();
-            if (marineAsker.askQuestion("Хотите изменить здоровье солдата?")) health = marineAsker.askHealth();
-            if (marineAsker.askQuestion("Хотите изменить рост солдата?")) height = marineAsker.askHeight();
-            if (marineAsker.askQuestion("Хотите изменить оружие дальнего боя солдата?")) weaponType = marineAsker.askWeaponType();
-            if (marineAsker.askQuestion("Хотите изменить оружие ближнего боя солдата?")) meleeWeapon = marineAsker.askMeleeWeapon();
-            if (marineAsker.askQuestion("Хотите изменить орден солдата?")) chapter = marineAsker.askChapter();
+            if (marineAsker.askQuestion("Want to change the soldier's name?")) name = marineAsker.askName();
+            if (marineAsker.askQuestion("Want to change the coordinates of a soldier?")) coordinates = marineAsker.askCoordinates();
+            if (marineAsker.askQuestion("Want to change a soldier's health?")) health = marineAsker.askHealth();
+            if (marineAsker.askQuestion("Want to change the height of a soldier?")) height = marineAsker.askHeight();
+            if (marineAsker.askQuestion("Want to change a soldier's ranged weapon?")) weaponType = marineAsker.askWeaponType();
+            if (marineAsker.askQuestion("Want to change a soldier's melee weapon?")) meleeWeapon = marineAsker.askMeleeWeapon();
+            if (marineAsker.askQuestion("Want to change the order of a soldier?")) chapter = marineAsker.askChapter();
 
             collectionHandler.addToCollection(new SpaceMarine(
                     id,
@@ -61,16 +61,16 @@ public class UpdateCommand extends AbstractCommand {
                     meleeWeapon,
                     chapter
             ));
-            Console.println("Солдат успешно изменен!");
+            Console.println("Soldier successfully changed!");
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("использование: '" + getName() + "'");
+            Console.println("usage: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
-            Console.printerror("Коллекция пуста!");
+            Console.printerror("Collection is empty!");
         } catch (NumberFormatException exception) {
-            Console.printerror("ID должен быть представлен числом!");
+            Console.printerror("ID must be represented by a number!");
         } catch (MarineNotFoundException exception) {
-            Console.printerror("Солдата с таким ID в коллекции нет!");
+            Console.printerror("There is no soldier with this ID in the collection!");
         } catch (IncorrectInputInScriptException exception) {}
         return false;
     }

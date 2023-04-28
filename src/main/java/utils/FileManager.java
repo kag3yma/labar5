@@ -29,11 +29,11 @@ public class FileManager {
         if (nameFile != null) {
             try (FileWriter collectionFileWriter = new FileWriter(new File(nameFile))) {
                 collectionFileWriter.write(gson.toJson(collection));
-                Console.println("Коллекция успешна сохранена в файл!");
+                Console.println("Collection successfully saved to file!");
             } catch (IOException exception) {
-                Console.printerror("Загрузочный файл является директорией/не может быть открыт!");
+                Console.printerror("The download file is a directory/cannot be opened!");
             }
-        } else Console.printerror("Системная переменная с загрузочным файлом не найдена!");
+        } else Console.printerror("Boot file system variable not found!");
     }
 
     public HashSet<SpaceMarine> readFromFile() {
@@ -53,20 +53,20 @@ public class FileManager {
                     collection = gson.fromJson(a, collectionType);
                     HashSet<SpaceMarine> marines = collection;
                     for (SpaceMarine marine : marines) CollectionHandler.getArrayForId().add(marine.getId());
-                    Console.println("Коллекция загружена успешно!");
+                    Console.println("Collection uploaded successfully!");
                     return collection;
                 } catch (FileNotFoundException e) {
-                    Console.printerror("Файл для загрузки не найден!");
+                    Console.printerror("Download file not found!");
                     throw new RuntimeException(e);
                 } catch (NoSuchElementException exception) {
-                    Console.printerror("Загрузочный файл пуст!");
+                    Console.printerror("Boot file is empty!");
                     throw new RuntimeException(exception);
                 } catch (NullPointerException exception) {
-                    Console.printerror("В загрузочном файле не обнаружена необходимая коллекция!");
+                    Console.printerror("Required collection not found in upload file!");
                     throw new RuntimeException(exception);
                 }
             }
-            } else Console.printerror("Системная переменная с загрузочным файлом не найдена!");
+            } else Console.printerror("Boot file system variable not found!");
             return new HashSet<SpaceMarine>();
         }
     }

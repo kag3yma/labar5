@@ -6,7 +6,7 @@ import utils.Console;
 public class ExitCommand extends AbstractCommand {
 
     public ExitCommand() {
-        super("exit", "завершить программу (без сохранения в файл)");
+        super("exit", "terminate program (without saving to file)");
     }
 
     @Override
@@ -15,7 +15,7 @@ public class ExitCommand extends AbstractCommand {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("использование: '" + getName() + "'");
+            Console.println("usage: '" + getName() + "'");
         }
         return false;
     }

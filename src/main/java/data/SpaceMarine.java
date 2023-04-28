@@ -3,15 +3,15 @@ package data;
 import java.time.LocalDateTime;
 
 public class SpaceMarine {
-    private Long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    private String name; //Поле не может быть null, Строка не может быть пустой
-    private Coordinates coordinates; //Поле не может быть null
-    private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private Float health; //Поле не может быть null, Значение поля должно быть больше 0
-    private float height; //Поле может быть null
-    private Weapon weaponType; //Поле не может быть null
-    private MeleeWeapon meleeWeapon; //Поле не может быть null
-    private Chapter chapter; //Поле не может быть null
+    private Long id;
+    private String name;
+    private Coordinates coordinates;
+    private java.time.LocalDateTime creationDate;
+    private Float health;
+    private float height;
+    private Weapon weaponType;
+    private MeleeWeapon meleeWeapon;
+    private Chapter chapter;
 
     public SpaceMarine(Long id, String name, LocalDateTime creationDate, Coordinates coordinates,
                        Float health, float height, Weapon weaponType,
@@ -79,14 +79,14 @@ public class SpaceMarine {
     @Override
     public String toString() {
         String info = "";
-        info += "Солдат №" + id;
-        info += " (добавлен " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
-        info += "\n имя: " + name;
-        info += "\n Местоположение: " + coordinates;
-        info += "\n Здоровье: " + health;
-        info += "\n Рост: " + height;
-        info += "\n Дальнее оружие: " + weaponType;
-        info += "\n Ближнее оружие: " + meleeWeapon;
+        info += "Soldier №" + id;
+        info += " (added " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
+        info += "\n name: " + name;
+        info += "\n Location: " + coordinates;
+        info += "\n Health: " + health;
+        info += "\n Height: " + height;
+        info += "\n Weapon: " + weaponType;
+        info += "\n Melee Weapon: " + meleeWeapon;
         info += chapter;
         info += "\n";
         return info;

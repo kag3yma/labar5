@@ -2,7 +2,7 @@ package data;
 
 public class Coordinates {
     private Float x;
-    private float y; //Поле не может быть null
+    private float y;
 
     public Coordinates(Float x, float y){
         this.x = x;

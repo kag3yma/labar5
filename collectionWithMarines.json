@@ -1,62 +1,5 @@
 [
   {
-    "id": 2,
-    "name": "Joseph",
-    "coordinates": {
-      "x": 122.0,
-      "y": 1434.0
-    },
-    "creationDate": "2023-04-24T17:56:49.581747900",
-    "health": 100.0,
-    "height": 204.0,
-    "weaponType": "GRENADE_LAUNCHER",
-    "meleeWeapon": "MANREAPER",
-    "chapter": {
-      "name": "Oldmen",
-      "parentLegion": "America",
-      "marinesCount": 100,
-      "world": "EARTH"
-    }
-  },
-  {
-    "id": 1,
-    "name": "Ilya",
-    "coordinates": {
-      "x": 20.0,
-      "y": 25.0
-    },
-    "creationDate": "2023-04-24T17:49:54.987674200",
-    "health": 100.0,
-    "height": 173.0,
-    "weaponType": "FLAMER",
-    "meleeWeapon": "POWER_SWORD",
-    "chapter": {
-      "name": "JOJO",
-      "parentLegion": "Naruto",
-      "marinesCount": 1,
-      "world": "EARTH"
-    }
-  },
-  {
-    "id": 6,
-    "name": "Rodrigo",
-    "coordinates": {
-      "x": 34.0,
-      "y": 1441.0
-    },
-    "creationDate": "2023-04-27T01:49:39.491213",
-    "health": 150.0,
-    "height": 230.0,
-    "weaponType": "GRENADE_LAUNCHER",
-    "meleeWeapon": "POWER_FIST",
-    "chapter": {
-      "name": "Proger",
-      "parentLegion": "Gamer",
-      "marinesCount": 1000,
-      "world": "EARTH"
-    }
-  },
-  {
     "id": 5,
     "name": "Morty",
     "coordinates": {
@@ -95,6 +38,25 @@
     }
   },
   {
+    "id": 1,
+    "name": "Ilya",
+    "coordinates": {
+      "x": 20.0,
+      "y": 25.0
+    },
+    "creationDate": "2023-04-24T17:49:54.987674200",
+    "health": 100.0,
+    "height": 173.0,
+    "weaponType": "FLAMER",
+    "meleeWeapon": "POWER_SWORD",
+    "chapter": {
+      "name": "JOJO",
+      "parentLegion": "Naruto",
+      "marinesCount": 1,
+      "world": "EARTH"
+    }
+  },
+  {
     "id": 3,
     "name": "Pops",
     "coordinates": {
@@ -111,6 +73,44 @@
       "parentLegion": "CartoonNetwork",
       "marinesCount": 7,
       "world": "Mult"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Rodrigo",
+    "coordinates": {
+      "x": 34.0,
+      "y": 1441.0
+    },
+    "creationDate": "2023-04-27T01:49:39.491213",
+    "health": 150.0,
+    "height": 230.0,
+    "weaponType": "GRENADE_LAUNCHER",
+    "meleeWeapon": "POWER_FIST",
+    "chapter": {
+      "name": "Proger",
+      "parentLegion": "Gamer",
+      "marinesCount": 1000,
+      "world": "EARTH"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Joseph",
+    "coordinates": {
+      "x": 122.0,
+      "y": 1434.0
+    },
+    "creationDate": "2023-04-24T17:56:49.581747900",
+    "health": 100.0,
+    "height": 204.0,
+    "weaponType": "GRENADE_LAUNCHER",
+    "meleeWeapon": "MANREAPER",
+    "chapter": {
+      "name": "Oldmen",
+      "parentLegion": "America",
+      "marinesCount": 100,
+      "world": "EARTH"
     }
   }
 ]

@@ -11,7 +11,7 @@ public class RemoveByIdCommand extends AbstractCommand {
     private CollectionHandler collectionHandler;
 
     public RemoveByIdCommand(CollectionHandler collectionHandler) {
-        super("remove_by_id <ID>", "удалить элемент из коллекции по ID");
+        super("remove_by_id <ID>", "remove item from collection by ID");
         this.collectionHandler = collectionHandler;
     }
 
@@ -24,16 +24,16 @@ public class RemoveByIdCommand extends AbstractCommand {
             SpaceMarine marineToRemove = collectionHandler.getById(id);
             if (marineToRemove == null) throw new MarineNotFoundException();
             collectionHandler.removeFromCollection(marineToRemove);
-            Console.println("Солдат успешно удален!");
+            Console.println("Soldier successfully removed!");
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("использование: '" + getName() + "'");
+            Console.println("usage: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
-            Console.printerror("Коллекция пуста!");
+            Console.printerror("Collection is empty!");
         } catch (NumberFormatException exception) {
-            Console.printerror("ID должен быть представлен числом!");
+            Console.printerror("ID must be represented by a number!");
         } catch (MarineNotFoundException exception) {
-            Console.printerror("Солдата с таким ID в коллекции нет!");
+            Console.printerror("There is no soldier with this ID in the collection!");
         }
         return false;
     }

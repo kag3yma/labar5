@@ -8,7 +8,7 @@ public class ClearCommand extends AbstractCommand {
     private CollectionHandler collectionHandler;
 
     public ClearCommand(CollectionHandler collectionHandler) {
-        super("clear", "очистить коллекцию");
+        super("clear", "clear the collection");
         this.collectionHandler = collectionHandler;
     }
 
@@ -17,10 +17,10 @@ public class ClearCommand extends AbstractCommand {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             collectionHandler.clearCollection();
-            Console.println("Коллекция очищена!");
+            Console.println("Collection cleared!");
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("использование: '" + getName() + "'");
+            Console.println("usage: '" + getName() + "'");
         }
         return false;
     }

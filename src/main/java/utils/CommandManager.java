@@ -68,7 +68,7 @@ public class CommandManager {
     }
 
     public boolean noSuchCommand(String command) {
-        Console.println("Команда '" + command + "' не найдена. Наберите 'help' для справки.");
+        Console.println("Command '" + command + "' not found. Type 'help' for help.");
         return false;
     }
 
@@ -126,7 +126,7 @@ public class CommandManager {
 
     @Override
     public String toString() {
-        return "CommandManager (вспомогательный класс для работы с командами)";
+        return "CommandManager (helper class for working with commands)";
     }
 }
 

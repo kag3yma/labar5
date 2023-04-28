@@ -14,7 +14,7 @@ public class AddCommand extends AbstractCommand {
     private MarineAsker marineAsker;
 
     public AddCommand(CollectionHandler collectionHandler, MarineAsker marineAsker) {
-        super("add {element}", "добавить новый элемент в коллекцию");
+        super("add {element}", "add a new element to the collection");
         this.collectionHandler = collectionHandler;
         this.marineAsker = marineAsker;
     }
@@ -34,10 +34,10 @@ public class AddCommand extends AbstractCommand {
                     marineAsker.askMeleeWeapon(),
                     marineAsker.askChapter()
             ));
-            Console.println("Солдат успешно добавлен!");
+            Console.println("Soldier successfully added!");
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("использование: '" + getName() + "'");
+            Console.println("usage: '" + getName() + "'");
         } catch (IncorrectInputInScriptException exception) {}
         return false;
     }

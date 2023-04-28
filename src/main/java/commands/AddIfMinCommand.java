@@ -14,7 +14,7 @@ public class AddIfMinCommand extends AbstractCommand {
     private MarineAsker marineAsker;
 
     public AddIfMinCommand(CollectionHandler collectionHandler, MarineAsker marineAsker) {
-        super("add_if_min {element}", "добавить новый элемент, если его значение меньше, чем у наименьшего");
+        super("add_if_min {element}", "add a new element if its value is less than that of the smallest");
         this.collectionHandler = collectionHandler;
         this.marineAsker = marineAsker;
     }
@@ -37,11 +37,11 @@ public class AddIfMinCommand extends AbstractCommand {
             if (collectionHandler.collectionSize() == 0 ||
                     marineToAdd.healthCompareTo(collectionHandler.getById(collectionHandler.getMin()) ) < 0) {
                 collectionHandler.addToCollection(marineToAdd);
-                Console.println("Солдат успешно добавлен!");
+                Console.println("Soldier successfully added!");
                 return true;
-            } else Console.printerror("Значение солдата больше, чем значение наименьшего из солдат!");
+            } else Console.printerror("The value of the soldier is greater than the value of the smallest of the soldiers!");
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("использование: '" + getName() + "'");
+            Console.println("usage: '" + getName() + "'");
         } catch (IncorrectInputInScriptException exception) {}
         return false;
     }

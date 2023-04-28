@@ -8,7 +8,7 @@ public class SaveCommand extends AbstractCommand {
     private CollectionHandler collectionHandler;
 
     public SaveCommand(CollectionHandler collectionHandler) {
-        super("save", "сохранить коллекцию в файл");
+        super("save", "save collection to file");
         this.collectionHandler = collectionHandler;
     }
 
@@ -19,7 +19,7 @@ public class SaveCommand extends AbstractCommand {
             collectionHandler.saveCollection();
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("использование: '" + getName() + "'");
+            Console.println("usage: '" + getName() + "'");
         }
         return false;
     }

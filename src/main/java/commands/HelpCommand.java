@@ -5,7 +5,7 @@ import exceptions.WrongAmountOfElementsException;
 public class HelpCommand extends AbstractCommand {
 
     public HelpCommand() {
-        super("help", "вывести справку по доступным командам");
+        super("help", "display help on available commands");
     }
 
     @Override
@@ -14,7 +14,7 @@ public class HelpCommand extends AbstractCommand {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println("использование: '" + getName() + "'");
+            System.out.println("usage: '" + getName() + "'");
         }
         return false;
     }

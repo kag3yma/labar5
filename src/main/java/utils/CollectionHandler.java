@@ -2,7 +2,6 @@ package utils;
 
 import data.MeleeWeapon;
 import data.SpaceMarine;
-import data.Weapon;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -153,7 +152,7 @@ public class CollectionHandler {
     }
     @Override
     public String toString() {
-        if (marinesCollection.isEmpty()) return "Коллекция пуста!";
+        if (marinesCollection.isEmpty()) return "Collection is empty!";
 
         String info = "";
         Iterator iterator = marinesCollection.iterator();

@@ -1,10 +1,10 @@
 package data;
 
 public class Chapter {
-    private String name; //Поле не может быть null, Строка не может быть пустой
+    private String name;
     private String parentLegion;
-    private int marinesCount; //Значение поля должно быть больше 0, Максимальное значение поля: 1000
-    private String world; //Поле не может быть null
+    private int marinesCount;
+    private String world;
 
     public Chapter(String name, String parentLegion, int marinesCount, String world){
         this.name = name;
@@ -25,9 +25,9 @@ public class Chapter {
     @Override
     public String toString() {
         String infoChap = "";
-        infoChap += "\n Орден: " + name + " (" + marinesCount + " солдат)";
-        infoChap += "\n        Появившийся из " + parentLegion;
-        infoChap += "\n        В мире: " + world;
+        infoChap += "\n Order: " + name + " (" + marinesCount + " soldier)";
+        infoChap += "\n        emerged from " + parentLegion;
+        infoChap += "\n        In the world: " + world;
         infoChap += "\n";
         return infoChap;
     }
