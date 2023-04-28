@@ -79,7 +79,7 @@ public class SpaceMarine {
     @Override
     public String toString() {
         String info = "";
-        info += "Soldier №" + id;
+        info += "Soldier id - " + id;
         info += " (added " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
         info += "\n name: " + name;
         info += "\n Location: " + coordinates;
