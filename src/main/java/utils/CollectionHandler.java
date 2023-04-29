@@ -49,7 +49,7 @@ public class CollectionHandler {
         return null;
     }
 
-    public LocalDateTime getInitDateTime(){return initDateTime;}
+    public LocalDateTime getInitDateTime() {return initDateTime;}
     public LocalDateTime getLastSaveTime() {
         return saveDateTime;
     }
