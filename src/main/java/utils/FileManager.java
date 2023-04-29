@@ -124,6 +124,7 @@ public class FileManager {
                     return collection;
                 }catch (JsonSyntaxException e){
                     Console.printerror("Broken syntax in collection file");
+                    System.exit(0);
                 } catch (FileNotFoundException e) {
                     Console.printerror("Download file not found!");
                     throw new RuntimeException(e);
