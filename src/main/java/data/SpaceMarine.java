@@ -39,6 +39,7 @@ public class SpaceMarine {
     public void setName(String name) {
         this.name = name;
     }
+    public LocalDateTime getDateTime(){return creationDate;}
     public Coordinates getCoordinates() {
         return coordinates;
     }

@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class FileManager {
+    HashSet<SpaceMarine> marinesCollection;
     private Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).registerTypeAdapter(
             LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
     private String nameFile;
@@ -54,6 +55,71 @@ public class FileManager {
                     HashSet<SpaceMarine> marines = collection;
                     for (SpaceMarine marine : marines) CollectionHandler.getArrayForId().add(marine.getId());
                     Console.println("Collection uploaded successfully!");
+                    this.marinesCollection = collection;
+                    int count = 0;
+                    try {
+                        for (SpaceMarine elem : collection) {
+                            count++;
+                        }
+                    } catch (NullPointerException e) {
+                        System.out.println("File is empty");
+                    }
+                    Long[] dublicate = new Long[count];
+                    count = 0;
+                    try {
+
+                        for (SpaceMarine elem : marinesCollection) {
+                            dublicate[count] = elem.getId();
+                            if (elem.getId() <= 0) {
+                                Console.printerror("The file has a negative ID, overwrite the file and try again");
+                                System.exit(0);
+                            }
+                            if (elem.getId() == null) {
+                                Console.printerror("id value cannot be null");
+                                System.exit(0);
+                            }
+                            if (elem.getName().equals("null")){
+                                Console.printerror("The file contains name with null value");
+                                System.exit(0);
+                            }
+                            if (elem.getName().equals("")){
+                                Console.printerror("Name cannot be an empty string");
+                                System.exit(0);
+                            }
+                            if(elem.getCoordinates().getX()<-647F){
+                                Console.printerror("The file contains the x coordinate less than -647");
+                                System.exit(0);
+                            }
+                            if (String.valueOf(elem.getCoordinates().getX()).equals("null")){
+                                Console.printerror("X coordinate cannot be null");
+                                System.exit(0);
+                            }
+                            if(elem.getDateTime().equals("null")){
+                                Console.printerror("Date cannot be null");
+                                System.exit(0);
+                            }
+                            if(elem.getHealth()<0){
+                                Console.printerror("The field value must be greater than 0");
+                                System.exit(0);
+                            }
+                            if(String.valueOf(elem.getHealth()).equals("null")){
+                                Console.printerror("The value of the helth field cannot be null");
+                                System.exit(0);
+                            }
+                            count = count + 1;
+                        }
+                    }
+                    catch (NullPointerException e) {
+                        Console.printerror("Check if data is correct, standard collection loaded");
+                    }
+                    for (int i = 0; i < count; i++) {
+                        for (int j = i + 1; j < count; j++) {
+                            if (dublicate[i] == dublicate[j]) {
+                                Console.printerror("The file contains duplicate id, overwrite the file and try again");
+                                System.exit(0);
+                            }
+                        }
+                    }
                     return collection;
                 } catch (FileNotFoundException e) {
                     Console.printerror("Download file not found!");
@@ -67,6 +133,8 @@ public class FileManager {
                 }
             }
             } else Console.printerror("Boot file system variable not found!");
-            return new HashSet<SpaceMarine>();
-        }
+
+        return new HashSet<SpaceMarine>();
+
+    }
     }
