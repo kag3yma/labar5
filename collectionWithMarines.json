@@ -38,7 +38,7 @@
     }
   },
   {
-    "id": 4,
+    "id: 4,
     "name": "Rick",
     "coordinates": {
       "x": 90.0,

@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class MarineAsker {
     private final Float MIN_X = Float.valueOf(-647);
     private final Float MIN_HEALTH = Float.valueOf(1);
-    private final int MIN_MARINES = 0;
+    private final int MIN_MARINES = 1;
     private final int MAX_MARINES = 1000;
 
     private Scanner userScanner;

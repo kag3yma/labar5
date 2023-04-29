@@ -4,6 +4,7 @@ package utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import data.SpaceMarine;
 
@@ -18,9 +19,9 @@ import java.util.*;
 
 public class FileManager {
     HashSet<SpaceMarine> marinesCollection;
-    private Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).registerTypeAdapter(
+    private final Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).registerTypeAdapter(
             LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
-    private String nameFile;
+    private final String nameFile;
 
     public FileManager(String nameFile) {
         this.nameFile = nameFile;
@@ -121,6 +122,8 @@ public class FileManager {
                         }
                     }
                     return collection;
+                }catch (JsonSyntaxException e){
+                    Console.printerror("Broken syntax in collection file");
                 } catch (FileNotFoundException e) {
                     Console.printerror("Download file not found!");
                     throw new RuntimeException(e);
