@@ -25,6 +25,18 @@ public class SpaceMarine {
         this.weaponType = weaponType;
         this.meleeWeapon = meleeWeapon;
         this.chapter = chapter;
+    }public SpaceMarine(Long id, String name, LocalDateTime creationDate, Coordinates coordinates,
+                        Float health, float height, Weapon weaponType,
+                        MeleeWeapon meleeWeapon) {
+        this.id = id;
+        this.creationDate = creationDate;
+        this.name = name;
+        this.coordinates = coordinates;
+        this.health = health;
+        this.height = height;
+        this.weaponType = weaponType;
+        this.meleeWeapon = meleeWeapon;
+        this.chapter = null;
     }
 
     public Long getId() {
@@ -88,7 +100,7 @@ public class SpaceMarine {
         info += "\n Height: " + height;
         info += "\n Weapon: " + weaponType;
         info += "\n Melee Weapon: " + meleeWeapon;
-        info += chapter;
+        info += "\n " + chapter;
         info += "\n";
         return info;
     }

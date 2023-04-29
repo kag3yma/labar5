@@ -152,6 +152,32 @@ public class MarineAsker {
         y = askY();
         return new Coordinates(x, y);
     }
+    public boolean askWantChapter()throws IncorrectInputInScriptException {
+        String question = "Do you want create chapter?";
+        String finalQuestion = question + " (+/-):";
+        String answer;
+        while (true) {
+            try {
+                Console.println(finalQuestion);
+                Console.print(App.PS2);
+                answer = userScanner.nextLine().trim();
+                if (fileMode) Console.println(answer);
+                if (!answer.equals("+") && !answer.equals("-")) throw new NotInDeclaredLimitsException();
+                break;
+            } catch (NoSuchElementException exception) {
+                Console.printerror("Answer not recognized!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (NotInDeclaredLimitsException exception) {
+                Console.printerror("The answer must be in characters. '+' or '-'!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (IllegalStateException exception) {
+                Console.printerror("Unexpected error!");
+                System.exit(0);
+            }
+        }
+        return (answer.equals("+")) ? true : false;
+    }
+
 
     public Float askHealth() throws IncorrectInputInScriptException {
         String strHealth;
@@ -349,7 +375,7 @@ public class MarineAsker {
                 Console.printerror("Answer not recognized!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NotInDeclaredLimitsException exception) {
-                Console.printerror("The answer must be in characters. '+' или '-'!");
+                Console.printerror("The answer must be in characters. '+' or '-'!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalStateException exception) {
                 Console.printerror("Unexpected error!");

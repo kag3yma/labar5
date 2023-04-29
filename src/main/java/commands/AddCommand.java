@@ -23,6 +23,8 @@ public class AddCommand extends AbstractCommand {
     public boolean execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
+            boolean solution = marineAsker.askWantChapter();
+            if (solution){
             collectionHandler.addToCollection(new SpaceMarine(
                     collectionHandler.generateNextId(),
                     marineAsker.askName(),
@@ -35,7 +37,20 @@ public class AddCommand extends AbstractCommand {
                     marineAsker.askChapter()
             ));
             Console.println("Soldier successfully added!");
-            return true;
+            return true;}
+            if (!solution){
+                collectionHandler.addToCollection(new SpaceMarine(
+                        collectionHandler.generateNextId(),
+                        marineAsker.askName(),
+                        LocalDateTime.now(),
+                        marineAsker.askCoordinates(),
+                        marineAsker.askHealth(),
+                        marineAsker.askHeight(),
+                        marineAsker.askWeaponType(),
+                        marineAsker.askMeleeWeapon()
+                ));
+                Console.println("Soldier successfully added!");
+                return true;}
         } catch (WrongAmountOfElementsException exception) {
             Console.println("usage: '" + getName() + "'");
         } catch (IncorrectInputInScriptException exception) {}

@@ -25,7 +25,7 @@ public class Chapter {
     @Override
     public String toString() {
         String infoChap = "";
-        infoChap += "\n Order: " + name + " (" + marinesCount + " soldier)";
+        infoChap += "Order: " + name + " (" + marinesCount + " soldier)";
         infoChap += "\n        emerged from " + parentLegion;
         infoChap += "\n        In the world: " + world;
         infoChap += "\n";
