@@ -3,8 +3,10 @@ package utils;
 import data.MeleeWeapon;
 import data.SpaceMarine;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,6 +16,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -55,14 +58,47 @@ public class CollectionHandler {
         }
         return null;
     }
+    public String getInitDateTime1() {
+        Process proc;
+        BufferedReader br = null;
+
+        try {
+
+            proc = Runtime.getRuntime()
+                    .exec("stat -x collectionWithMarines.json");
+
+            br = new BufferedReader(
+                    new InputStreamReader(proc.getInputStream()));
+
+            String data = "";
+            for (int i = 0; i < 8; i++) {
+                data = br.readLine();
+            }
+            return data;
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return "didn't find creation time :(";
+    }
 
     public FileTime getInitDateTime() {
         FileTime nothing = null;
         try{
         Path file = Paths.get("collectionWithMarines.json");
-        BasicFileAttributes attr =
-                Files.readAttributes(file, BasicFileAttributes.class);
-        return attr.creationTime();
+            FileTime creationTime =
+                    (FileTime) Files.getAttribute(file, "creationTime");
+            return creationTime;
         } catch (IOException e) {
             e.printStackTrace();
         }
