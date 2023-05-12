@@ -3,8 +3,12 @@ package utils;
 import data.MeleeWeapon;
 import data.SpaceMarine;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileTime;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -52,11 +56,21 @@ public class CollectionHandler {
         return null;
     }
 
-    public LocalDateTime getInitDateTime() {try {
-        FileTime creationTime = (FileTime) Files.getAttribute(collectionWithMarines.json, "creationTime");
-    } catch (IOException ex) {
-        Console.printerror("Initialization date error");
-    }return initDateTime;}
+    public FileTime getInitDateTime() {
+        FileTime nothing = null;
+        try{
+        Path file = Paths.get("collectionWithMarines.json");
+        BasicFileAttributes attr =
+                Files.readAttributes(file, BasicFileAttributes.class);
+        return attr.creationTime();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return nothing;
+    }
+
+
     public LocalDateTime getLastSaveTime() {
         return saveDateTime;
     }
