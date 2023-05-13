@@ -18,9 +18,9 @@ public class InfoCommand extends AbstractCommand {
     public boolean execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-            String lastInitTime = collectionHandler.getInitDateTime1();
+            FileTime lastInitTime = collectionHandler.getInitDateTime();
             String lastInitTimeString = (lastInitTime == null) ? "initialization has not yet taken place in this session" :
-                    lastInitTime;
+                    lastInitTime.toString();
 
             LocalDateTime lastSaveTime = collectionHandler.getLastSaveTime();
             String lastSaveTimeString = (lastSaveTime == null) ? "this session has not yet been saved" :
